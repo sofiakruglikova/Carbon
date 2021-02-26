@@ -99,10 +99,10 @@
             </objects>
             <point key="canvasLocation" x="-2580" y="-100"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="Glo-Sg-YZW">
             <objects>
-                <viewController id="ecv-XO-4ie" sceneMemberID="viewController">
+                <viewController id="ecv-XO-4ie" customClass="SignUpViewController" customModule="cfa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nkw-hg-RkQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,6 +141,9 @@
                                 <rect key="frame" x="166" y="621" width="82" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Sign up"/>
+                                <connections>
+                                    <action selector="signUpButtonPress:" destination="ecv-XO-4ie" eventType="touchUpInside" id="ghU-VA-kTC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WcA-jQ-4ox"/>
@@ -166,6 +169,10 @@
                             <constraint firstItem="azE-8B-mR7" firstAttribute="centerX" secondItem="WcA-jQ-4ox" secondAttribute="centerX" id="trT-yD-Kkj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordField" destination="czD-ex-DEq" id="4SG-3q-5cz"/>
+                        <outlet property="usernameField" destination="h6c-5d-9c7" id="U9e-UB-TYa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8W-AX-Zzp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

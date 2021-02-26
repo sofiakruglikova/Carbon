@@ -9,12 +9,20 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
@@ -26,4 +34,10 @@ class SignUpViewController: UIViewController {
     }
     */
 
+    @IBAction func signUpButtonPress(_ sender: UIButton) {
+        guard let username = usernameField.text else { return }
+        guard let password = passwordField.text else { return }
+        
+        showAlert(title: username, message: password)
+    }
 }
