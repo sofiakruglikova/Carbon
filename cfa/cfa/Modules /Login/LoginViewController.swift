@@ -7,7 +7,9 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class LoginViewController: UIViewController {
+    
+    let viewModel = LoginViewModel()
 
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
