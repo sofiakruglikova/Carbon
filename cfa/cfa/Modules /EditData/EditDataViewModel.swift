@@ -20,8 +20,11 @@ class EditDataViewModel {
     func makeDummyData() {
         
         let carbon1 = EditData.Carbon(transport: .Bus, frequency: .EveryDay)
-        let carbon2 = EditData.Carbon(transport: .Train, frequency: .Week(days: 2)
-        let carbon3 = EditData.Carbon(transport: .Plane, frequency: .Month(weeks: 5)
+        let carbon2 = EditData.Carbon(transport: .Train, frequency: .Week(days: 2))
+        let carbon3 = EditData.Carbon(transport: .Plane, frequency: .Month(weeks: 5))
+        
+        data = [carbon1, carbon2, carbon3]
+        
     }
     
 }

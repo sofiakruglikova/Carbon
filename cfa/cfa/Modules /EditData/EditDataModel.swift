@@ -9,7 +9,7 @@ import Foundation
 
 enum EditData {
     
-    enum Transport {
+    enum Transport: String {
         
         case Train
         case Car
@@ -32,6 +32,14 @@ enum EditData {
         case Week(days: Int)
         case Month(weeks: Int)
         
+        var text: String {
+            switch self {
+            case .EveryDay: return "Every Day"
+            case .Week(let days): return "\(days) a week"
+            case .Month(let weeks): return "\(weeks) a month"
+            }
+        }
+        
     }
     
     struct Carbon {
@@ -39,6 +47,13 @@ enum EditData {
         let transport: Transport
         let frequency: Frequency
         
+        var title: String {
+            transport.rawValue
+        }
+        
+        var subtitle: String {
+            frequency.text 
+        }
     }
     
     

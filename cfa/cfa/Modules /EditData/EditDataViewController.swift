@@ -9,6 +9,7 @@ import UIKit
 
 class EditDataViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     let viewModel = EditDataViewModel()
     
     override func viewDidLoad() {
@@ -17,15 +18,33 @@ class EditDataViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableSetUp() {
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.reloadData()
+        
     }
-    */
+    
+}
 
+extension EditDataViewController: UITableViewDelegate {
+    
+}
+
+extension EditDataViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.data.count
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let carbon = viewModel.data[indexPath.row]
+        cell.textLabel?.text = carbon.title
+        cell.detailTextLabel?.text = carbon.subtitle
+        return cell
+    }
+    
+    
 }

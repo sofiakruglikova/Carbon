@@ -137,8 +137,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j58-0Q-i3N">
-                                <rect key="frame" x="166" y="665" width="82" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j58-0Q-i3N">
+                                <rect key="frame" x="53" y="660" width="309" height="144"/>
+                                <color key="backgroundColor" red="0.6148123741" green="0.1017967239" blue="0.1002308354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Sign up"/>
                                 <connections>
@@ -179,10 +180,10 @@
             </objects>
             <point key="canvasLocation" x="381.15942028985512" y="77.678571428571431"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Data View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="cfa" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditDataViewController" id="BYZ-38-t0r" customClass="EditDataViewController" customModule="cfa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -220,6 +221,9 @@
                             <constraint firstItem="KGP-Da-eS5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uzi-wb-wKz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="r2H-pA-Yh2" id="SzD-vX-lrB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

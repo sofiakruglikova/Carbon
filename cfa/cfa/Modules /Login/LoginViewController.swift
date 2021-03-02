@@ -21,9 +21,17 @@ class LoginViewController: UIViewController {
     }
     
     func showAlert(title: String, message: String) {
+        guard let username = usernameField.text else { return }
+        guard let password = passwordField.text else { return }
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showDataView() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let dataViewController = storyBoard.instantiateViewController(withIdentifier: "EditDataViewController") as! EditDataViewController
+        self.navigationController?.pushViewController(dataViewController, animated: true)
     }
 
     /*
@@ -37,9 +45,6 @@ class LoginViewController: UIViewController {
     */
 
     @IBAction func signUpButtonPress(_ sender: UIButton) {
-        guard let username = usernameField.text else { return }
-        guard let password = passwordField.text else { return }
-        
-        showAlert(title: username, message: password)
+        showDataView()
     }
 }
