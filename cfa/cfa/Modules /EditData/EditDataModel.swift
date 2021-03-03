@@ -29,20 +29,22 @@ enum EditData {
     enum Frequency {
         
         case EveryDay
-        case Week(days: Int)
-        case Month(weeks: Int)
+        case Week(times: Int)
+        case Month(times: Int)
         
         var text: String {
             switch self {
             case .EveryDay: return "Every Day"
-            case .Week(let days): return "\(days) a week"
-            case .Month(let weeks): return "\(weeks) a month"
+            case .Week(let times): return "\(times) a week"
+            case .Month(let times): return "\(times) a month"
             }
         }
         
     }
     
     struct Carbon {
+        
+        let date: Date = Date()
         
         let transport: Transport
         let frequency: Frequency
@@ -52,7 +54,18 @@ enum EditData {
         }
         
         var subtitle: String {
-            frequency.text 
+            frequency.text
+        }
+        
+        func calcEmission(days: Float = 30) -> Float {
+            
+            let emission = transport.averageEmission
+            switch frequency {
+            case .EveryDay: return days * emission
+            case .Week(let times): return Float((days/7.0) * Float(times)) * emission
+            case .Month(let times): return Float((days/(365.0/12.0)) * Float(times)) * emission
+                
+            }
         }
     }
     

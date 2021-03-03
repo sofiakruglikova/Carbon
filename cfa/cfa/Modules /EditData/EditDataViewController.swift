@@ -14,18 +14,25 @@ class EditDataViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableSetUp()
 
-        // Do any additional setup after loading the view.
     }
     
     func tableSetUp() {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.reloadData()
+        viewModel.makeDummyData {
+            self.tableView.reloadData()
+        }
         
     }
     
+    @IBAction func buttonAddTapped(_ sender: UIButton) {
+        
+        viewModel.calculation()
+        
+    }
 }
 
 extension EditDataViewController: UITableViewDelegate {
@@ -39,10 +46,13 @@ extension EditDataViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let carbon = viewModel.data[indexPath.row]
         cell.textLabel?.text = carbon.title
         cell.detailTextLabel?.text = carbon.subtitle
+        print(carbon.subtitle)
+        //cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
+        //cell.textLabel?.textColor = .black
         return cell
     }
     
