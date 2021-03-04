@@ -223,6 +223,84 @@
             </objects>
             <point key="canvasLocation" x="-528.98550724637687" y="77.678571428571431"/>
         </scene>
+        <!--Add Data View Controller-->
+        <scene sceneID="OuV-CQ-Fsg">
+            <objects>
+                <viewController id="DIK-64-Xos" customClass="AddDataViewController" customModule="cfa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ACk-Bi-ir3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="190" translatesAutoresizingMaskIntoConstraints="NO" id="m8G-jC-kJc">
+                                <rect key="frame" x="10" y="312" width="394" height="272"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Vxy-Lv-VAd">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="41"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose your transport type" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eql-BR-XHU">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PA9-F2-Xyu">
+                                                <rect key="frame" x="207" y="0.0" width="187" height="41"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eqt-wI-LwA">
+                                        <rect key="frame" x="0.0" y="231" width="394" height="41"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose your transport type" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNR-lK-b3b">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0x7-KT-qwq">
+                                                <rect key="frame" x="207" y="0.0" width="187" height="41"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="109" translatesAutoresizingMaskIntoConstraints="NO" id="Fq1-So-IyW">
+                                <rect key="frame" x="45" y="746.5" width="324" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8JD-O8-MjM">
+                                        <rect key="frame" x="0.0" y="0.0" width="104" height="30"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title=" Save and next "/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9EU-Gd-xPm">
+                                        <rect key="frame" x="213" y="0.0" width="111" height="30"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title=" Save and close "/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="D2v-vt-tip"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="m8G-jC-kJc" firstAttribute="centerY" secondItem="ACk-Bi-ir3" secondAttribute="centerY" id="0rf-Yj-O00"/>
+                            <constraint firstItem="Fq1-So-IyW" firstAttribute="centerY" secondItem="ACk-Bi-ir3" secondAttribute="centerY" multiplier="1.7" id="Vsn-my-dcs"/>
+                            <constraint firstItem="Fq1-So-IyW" firstAttribute="centerX" secondItem="ACk-Bi-ir3" secondAttribute="centerX" id="e5g-fQ-t9V"/>
+                            <constraint firstItem="m8G-jC-kJc" firstAttribute="leading" secondItem="D2v-vt-tip" secondAttribute="leading" constant="10" id="i9L-u6-qii"/>
+                            <constraint firstAttribute="trailing" secondItem="m8G-jC-kJc" secondAttribute="trailing" constant="10" id="z2W-ZD-0yI"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5hG-mh-Q5F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-175.36231884057972" y="783.48214285714278"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="labelColor">
