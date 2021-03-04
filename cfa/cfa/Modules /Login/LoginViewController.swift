@@ -6,26 +6,25 @@
 //
 
 import UIKit
+import AuthenticationServices
+import LocalAuthentication
 
 class LoginViewController: UIViewController {
     
     let viewModel = LoginViewModel()
-
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
+    let authenticationLimit: Int = 3
+    
+    var wrongAuthenticationCount: Int = 0
+    var laPolicy: LAPolicy = .deviceOwnerAuthenticationWithBiometrics
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     func showAlert(title: String, message: String) {
-        guard let username = usernameField.text else { return }
-        guard let password = passwordField.text else { return }
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
     }
     
     func showDataView() {
@@ -43,8 +42,39 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func authenticationWithBiometricID(completion: ((String?) -> Void)? = nil) {
+            let localAuthenticationContext = LAContext()
+            localAuthenticationContext.localizedFallbackTitle = "Ввести 5-значный пароль"
 
+            var authorizationError: NSError?
+            let reason = "Приложите палец чтобы войти в приложение"
+
+            if localAuthenticationContext.canEvaluatePolicy(laPolicy, error: &authorizationError) {
+                
+                localAuthenticationContext.evaluatePolicy(laPolicy, localizedReason: reason) { success, evaluateError in
+                    
+                    completion?(success ? nil : evaluateError?.localizedDescription ?? "Unknown reason")
+                    
+                }
+            } else {
+                completion?(authorizationError?.localizedDescription ?? "Unknown auth error")
+            }
+        }
+    
     @IBAction func signUpButtonPress(_ sender: UIButton) {
-        showDataView()
+        //showDataView()
+        authenticationWithBiometricID { (errorText) in
+            DispatchQueue.main.async() {
+                if let text = errorText {
+                    self.showAlert(title: "Authentication error", message: text)
+                    //self.wrongAuthenticationCount += 1
+                    //if self.wrongAuthenticationCount > (self.authenticationLimit - 1) {
+                        //self.laPolicy = .deviceOwnerAuthentication
+//                    }
+                } else {
+                    self.showDataView()
+                }
+            }
+        }
     }
 }
