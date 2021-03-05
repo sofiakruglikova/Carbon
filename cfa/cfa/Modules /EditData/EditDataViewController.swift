@@ -28,9 +28,17 @@ class EditDataViewController: UIViewController {
         
     }
     
+    func showAddDataModel() {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let modalViewController = storyBoard.instantiateViewController(withIdentifier: "AddDataViewController") as! AddDataViewController
+            modalViewController.modalPresentationStyle = .formSheet
+            present(modalViewController, animated: true, completion: nil)
+        }
+    
     @IBAction func buttonAddTapped(_ sender: UIButton) {
         
-        viewModel.calculation()
+//        viewModel.calculation()
+        showAddDataModel()
         
     }
 }

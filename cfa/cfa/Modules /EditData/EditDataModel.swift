@@ -9,7 +9,7 @@ import Foundation
 
 enum EditData {
     
-    enum Transport: String {
+    enum Transport: String, CaseIterable {
         
         case Train
         case Car
@@ -24,6 +24,22 @@ enum EditData {
             case .Plane: return 256.4
             }
         }
+        
+        var title: String {
+            self.rawValue
+        }
+        
+        static var count: Int {
+            Transport.allCases.count
+        }
+        
+        static var titles: [String] {
+            Transport.allCases.map({ $0.rawValue })
+        }
+        
+        static func get(by id: Int) -> Transport {
+            Transport.allCases[id]
+        }
     }
     
     enum Frequency {
@@ -37,6 +53,42 @@ enum EditData {
             case .EveryDay: return "Every Day"
             case .Week(let times): return "\(times) a week"
             case .Month(let times): return "\(times) a month"
+            }
+        }
+        
+        static var count: Int {
+            3
+        }
+        
+        static var titles: [String] {
+            ["Every day", "week", "month"]
+        }
+        
+        static func count(frequency: Frequency) -> Int {
+            
+            switch frequency {
+            case .EveryDay: return 31
+            case .Week(_): return 7
+            case .Month(_): return 31
+            }
+            
+        }
+        
+        static func get(by name: String, for times: Int = 1) -> Frequency {
+            switch name {
+            case "Every day": return .EveryDay
+            case "week": return .Week(times: times)
+            case "month": return .Month(times: times)
+            default:
+                return .EveryDay
+            }
+        }
+        
+        static func get(by frequency: Frequency, for times: Int = 1) -> Frequency {
+            switch frequency {
+            case .EveryDay: return .EveryDay
+            case .Week(_): return .Week(times: times)
+            case .Month(_): return .Month(times: times)
             }
         }
         

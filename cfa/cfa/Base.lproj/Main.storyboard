@@ -226,7 +226,7 @@
         <!--Add Data View Controller-->
         <scene sceneID="OuV-CQ-Fsg">
             <objects>
-                <viewController id="DIK-64-Xos" customClass="AddDataViewController" customModule="cfa" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddDataViewController" id="DIK-64-Xos" customClass="AddDataViewController" customModule="cfa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ACk-Bi-ir3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,7 +254,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eqt-wI-LwA">
                                         <rect key="frame" x="0.0" y="231" width="394" height="41"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose your transport type" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNR-lK-b3b">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please specify how often you use it" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNR-lK-b3b">
                                                 <rect key="frame" x="0.0" y="0.0" width="187" height="41"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -271,31 +271,54 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="109" translatesAutoresizingMaskIntoConstraints="NO" id="Fq1-So-IyW">
-                                <rect key="frame" x="45" y="746.5" width="324" height="30"/>
+                                <rect key="frame" x="109" y="746.5" width="196" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8JD-O8-MjM">
-                                        <rect key="frame" x="0.0" y="0.0" width="104" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title=" Save and next "/>
+                                        <state key="normal" title=" Next ">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextButtonTapped:" destination="DIK-64-Xos" eventType="touchUpInside" id="44e-Oy-RQb"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9EU-Gd-xPm">
-                                        <rect key="frame" x="213" y="0.0" width="111" height="30"/>
+                                        <rect key="frame" x="149" y="0.0" width="47" height="30"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title=" Save and close "/>
+                                        <state key="normal" title=" Close ">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeButtonTapped:" destination="DIK-64-Xos" eventType="touchUpInside" id="UwQ-TS-oTa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transport details " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnW-aS-7Mo">
+                                <rect key="frame" x="44" y="145" width="326" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="D2v-vt-tip"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="m8G-jC-kJc" firstAttribute="centerY" secondItem="ACk-Bi-ir3" secondAttribute="centerY" id="0rf-Yj-O00"/>
+                            <constraint firstItem="m8G-jC-kJc" firstAttribute="top" secondItem="nnW-aS-7Mo" secondAttribute="bottom" constant="113" id="DAM-n2-MdE"/>
                             <constraint firstItem="Fq1-So-IyW" firstAttribute="centerY" secondItem="ACk-Bi-ir3" secondAttribute="centerY" multiplier="1.7" id="Vsn-my-dcs"/>
+                            <constraint firstItem="nnW-aS-7Mo" firstAttribute="top" secondItem="D2v-vt-tip" secondAttribute="top" constant="101" id="bQi-a0-tdJ"/>
                             <constraint firstItem="Fq1-So-IyW" firstAttribute="centerX" secondItem="ACk-Bi-ir3" secondAttribute="centerX" id="e5g-fQ-t9V"/>
+                            <constraint firstItem="nnW-aS-7Mo" firstAttribute="centerX" secondItem="ACk-Bi-ir3" secondAttribute="centerX" id="hHj-sk-icB"/>
                             <constraint firstItem="m8G-jC-kJc" firstAttribute="leading" secondItem="D2v-vt-tip" secondAttribute="leading" constant="10" id="i9L-u6-qii"/>
                             <constraint firstAttribute="trailing" secondItem="m8G-jC-kJc" secondAttribute="trailing" constant="10" id="z2W-ZD-0yI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="frequencyTextField" destination="0x7-KT-qwq" id="xBV-nK-6wU"/>
+                        <outlet property="transportTextField" destination="PA9-F2-Xyu" id="XZD-oh-Dvq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hG-mh-Q5F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

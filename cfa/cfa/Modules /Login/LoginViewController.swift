@@ -44,10 +44,10 @@ class LoginViewController: UIViewController {
     */
     func authenticationWithBiometricID(completion: ((String?) -> Void)? = nil) {
             let localAuthenticationContext = LAContext()
-            localAuthenticationContext.localizedFallbackTitle = "Ввести 5-значный пароль"
+            localAuthenticationContext.localizedFallbackTitle = "Please enter a 5-character long password"
 
             var authorizationError: NSError?
-            let reason = "Приложите палец чтобы войти в приложение"
+            let reason = "Use touch ID to log in"
 
             if localAuthenticationContext.canEvaluatePolicy(laPolicy, error: &authorizationError) {
                 
