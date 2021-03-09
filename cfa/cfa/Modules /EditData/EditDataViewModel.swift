@@ -33,6 +33,21 @@ class EditDataViewModel {
         
     }
     
+    func addData(carbon: EditData.Carbon) {
+        data.append(carbon)
+    }
+    
+    func updateData(carbonPair: (Int, EditData.Carbon)) {
+        if carbonPair.0 < data.count {
+            data[carbonPair.0] = carbonPair.1
+        }
+    }
+    
+    func deleteData(at indexPath: IndexPath) {
+        if indexPath.row < data.count {
+            data.remove(at: indexPath.row)
+        }
+    }
 }
 
 

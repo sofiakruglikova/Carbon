@@ -7,6 +7,15 @@
 
 import UIKit
 
+protocol EditDataDelegate {
+    
+    func addData(carbon: EditData.Carbon)
+    
+    func update()
+    
+    func updateData(carbonPair: (Int, EditData.Carbon))
+}
+
 class EditDataViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -28,11 +37,13 @@ class EditDataViewController: UIViewController {
         
     }
     
-    func showAddDataModel() {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let modalViewController = storyBoard.instantiateViewController(withIdentifier: "AddDataViewController") as! AddDataViewController
-            modalViewController.modalPresentationStyle = .formSheet
-            present(modalViewController, animated: true, completion: nil)
+    func showAddDataModel(carbonPair: (Int, EditData.Carbon)? = nil) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let modalViewController = storyBoard.instantiateViewController(withIdentifier: "AddDataViewController") as! AddDataViewController
+        modalViewController.modalPresentationStyle = .formSheet
+        modalViewController.delegate = self
+        modalViewController.currentCarbonPair = carbonPair
+        present(modalViewController, animated: true, completion: nil)
         }
     
     @IBAction func buttonAddTapped(_ sender: UIButton) {
@@ -64,5 +75,32 @@ extension EditDataViewController: UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showAddDataModel(carbonPair: (indexPath.row, viewModel.data[indexPath.row]))
+    }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            viewModel.deleteData(at: indexPath)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+            print("Insert")
+        }
+    }
+}
+
+extension EditDataViewController: EditDataDelegate {
+    
+    func update() {
+        tableView.reloadData()
+    }
+    
+    func addData(carbon: EditData.Carbon) {
+        viewModel.addData(carbon: carbon)
+    }
+    
+    func updateData(carbonPair: (Int, EditData.Carbon)) {
+        viewModel.updateData(carbonPair: carbonPair)
+    }
 }

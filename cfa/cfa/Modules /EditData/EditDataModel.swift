@@ -56,6 +56,14 @@ enum EditData {
             }
         }
         
+        var times: Int {
+            switch self {
+            case .EveryDay: return 1
+            case .Week(let times): return times
+            case .Month(let times): return times
+            }
+        }
+        
         static var count: Int {
             3
         }
@@ -64,14 +72,14 @@ enum EditData {
             ["Every day", "week", "month"]
         }
         
-        static func count(frequency: Frequency) -> Int {
+        static func count(frequency: Frequency?) -> Int {
+            guard let frequency = frequency else { return 0 }
             
             switch frequency {
             case .EveryDay: return 31
             case .Week(_): return 7
             case .Month(_): return 31
             }
-            
         }
         
         static func get(by name: String, for times: Int = 1) -> Frequency {

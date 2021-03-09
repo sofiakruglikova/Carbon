@@ -18,22 +18,40 @@ class AddDataViewController: UIViewController {
     let transportPickerView = UIPickerView()
     let frequencyPickerView = UIPickerView()
     
-    var currentTransport: EditData.Transport = .Car {
-            didSet {
-                self.transportTextField.text = currentTransport.title
+    var currentTransport: EditData.Transport? {
+        didSet {
+            if let textField = self.transportTextField, let transport = currentTransport {
+                textField.text = transport.title
             }
         }
-        var currentFrequency: EditData.Frequency = .EveryDay {
-            didSet {
-                self.frequencyTextField.text = currentFrequency.text
+    }
+    var currentFrequency: EditData.Frequency? {
+        didSet {
+            if let textField = self.frequencyTextField, let frequency = currentFrequency {
+                textField.text = frequency.text
             }
         }
-        var currentTimes: Int = 1 {
-            didSet {
-                currentFrequency = EditData.Frequency.get(by: currentFrequency, for: currentTimes)
+    }
+    var currentTimes: Int = 1 {
+        didSet {
+            if  let frequency = currentFrequency {
+                currentFrequency = EditData.Frequency.get(by: frequency, for: currentTimes)
                 frequencyPickerView.reloadComponent(1)
             }
         }
+    }
+    
+    var delegate: EditDataDelegate?
+    
+    var currentCarbonPair: (Int, EditData.Carbon)? {
+        didSet {
+            if let carbon = currentCarbonPair?.1 {
+                self.currentTransport = carbon.transport
+                self.currentFrequency = carbon.frequency
+                self.currentTimes = carbon.frequency.times
+            }
+        }
+    }
 
     override func viewDidLoad() {
         
@@ -82,12 +100,37 @@ class AddDataViewController: UIViewController {
             transportTextField.resignFirstResponder()
         }
     
+    private func saveData(completion: (() -> Void)? = nil) {
+            if let transport = currentTransport, let frequency = currentFrequency {
+                let carbon = EditData.Carbon(transport: transport, frequency: frequency)
+                if let carbonPair = currentCarbonPair {
+                    delegate?.updateData(carbonPair: (carbonPair.0, carbon))
+                } else {
+                    delegate?.addData(carbon: carbon)
+                }
+            }
+            completion?()
+        }
+    
+    private func clearUI() {
+        currentTransport = .Bus
+        currentFrequency = .EveryDay
+        currentTimes = 1
+    }
+    
     @IBAction func nextButtonTapped(_ sender: UIButton) {
+        saveData {
+            self.clearUI()
+        }
     }
     
     @IBAction func closeButtonTapped(_ sender: UIButton) {
+        saveData {
+            self.dismiss(animated: true) { [weak self] in
+                self?.delegate?.update()
+            }
+        }
     }
-    
 }
 
 extension AddDataViewController: UIPickerViewDelegate, UIPickerViewDataSource{
