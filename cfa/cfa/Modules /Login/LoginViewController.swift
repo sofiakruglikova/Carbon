@@ -27,21 +27,12 @@ class LoginViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
     }
     
-    func showDataView() {
+    func showMainGraphView() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let dataViewController = storyBoard.instantiateViewController(withIdentifier: "EditDataViewController") as! EditDataViewController
-        self.navigationController?.pushViewController(dataViewController, animated: true)
+                let mainGraphViewController = storyBoard.instantiateViewController(withIdentifier: "MainGraphViewController") as! MainGraphViewController
+        self.navigationController?.pushViewController(mainGraphViewController, animated: true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
     func authenticationWithBiometricID(completion: ((String?) -> Void)? = nil) {
             let localAuthenticationContext = LAContext()
             localAuthenticationContext.localizedFallbackTitle = "Please enter a 5-character long password"
@@ -72,7 +63,7 @@ class LoginViewController: UIViewController {
                         //self.laPolicy = .deviceOwnerAuthentication
 //                    }
                 } else {
-                    self.showDataView()
+                    self.showMainGraphView()
                 }
             }
         }

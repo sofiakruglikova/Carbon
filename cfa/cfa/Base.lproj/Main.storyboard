@@ -122,7 +122,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
@@ -219,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1382.608695652174" y="77.678571428571431"/>
+            <point key="canvasLocation" x="2196" y="78"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OKN-o9-NX5">
@@ -296,7 +296,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
@@ -311,7 +311,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
@@ -348,7 +348,50 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hG-mh-Q5F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-175.36231884057972" y="783.48214285714278"/>
+            <point key="canvasLocation" x="3046" y="78"/>
+        </scene>
+        <!--Main Graph View Controller-->
+        <scene sceneID="6FJ-YW-aqW">
+            <objects>
+                <viewController storyboardIdentifier="MainGraphViewController" id="yNw-OD-8th" customClass="MainGraphViewController" customModule="cfa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MBx-3W-Gl6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pt4-YE-IFA" customClass="MSBBarChartView" customModule="cfa" customModuleProvider="target">
+                                <rect key="frame" x="10" y="251" width="394" height="394"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="394" id="mj8-Kt-igI"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oia-0m-tYO">
+                                <rect key="frame" x="151.5" y="148" width="111" height="30"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="My Carbon Data"/>
+                                <connections>
+                                    <action selector="myDataButtonTapped:" destination="yNw-OD-8th" eventType="touchUpInside" id="q14-fZ-OAR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="f86-Nc-Kwf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oia-0m-tYO" firstAttribute="top" secondItem="f86-Nc-Kwf" secondAttribute="top" constant="104" id="9Du-4e-Gih"/>
+                            <constraint firstItem="oia-0m-tYO" firstAttribute="centerX" secondItem="MBx-3W-Gl6" secondAttribute="centerX" id="ICS-kS-tE1"/>
+                            <constraint firstItem="f86-Nc-Kwf" firstAttribute="trailing" secondItem="pt4-YE-IFA" secondAttribute="trailing" constant="10" id="Weo-Jy-jaC"/>
+                            <constraint firstItem="pt4-YE-IFA" firstAttribute="centerY" secondItem="MBx-3W-Gl6" secondAttribute="centerY" id="cEl-YZ-sj7"/>
+                            <constraint firstItem="pt4-YE-IFA" firstAttribute="centerX" secondItem="MBx-3W-Gl6" secondAttribute="centerX" id="gLs-Vo-Ly1"/>
+                            <constraint firstItem="pt4-YE-IFA" firstAttribute="leading" secondItem="f86-Nc-Kwf" secondAttribute="leading" constant="10" id="wd0-bP-Rx6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="graphView" destination="pt4-YE-IFA" id="Iyg-q9-0TA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VMq-p0-v4r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1309" y="78"/>
         </scene>
     </scenes>
     <resources>
