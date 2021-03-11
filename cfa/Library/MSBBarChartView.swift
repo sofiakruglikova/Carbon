@@ -105,7 +105,10 @@ extension MSBBarChartView {
     }
 
     private func showEntry(index: Int, entry: BarEntry, maxInterval: CGFloat) {
-        guard let maxBar = getMaxEntry(), let entryValue = Float(entry.textValue), let maxEntryValue = Float(maxBar.textValue) else { return }
+        guard let maxBar = getMaxEntry() else { return }
+        
+        let entryValue = entry.value
+        let maxEntryValue = maxBar.value
         
         let barWidthSet = barWidth + space
         let xPos: CGFloat = yAxisLabelWidth + bothSideMargin + CGFloat(index) * barWidthSet
@@ -123,7 +126,7 @@ extension MSBBarChartView {
         }
         
         if !isHiddenLabelAboveBar {
-            drawBarValue(xPos: xPos - barValueBaseMargin / 2, yPos: yPos - barValueBaseMargin, textValue: entry.textValue, color: entry.color)
+            drawBarValue(xPos: xPos - barValueBaseMargin / 2, yPos: yPos - barValueBaseMargin, textValue: String(format: "%.3f", entry.value), color: entry.color)
         }
         
         if !isHiddenExceptBars {
@@ -275,24 +278,26 @@ extension MSBBarChartView {
     }
 
     private func getMaxEntry() -> BarEntry? {
-        guard let entries = self.dataEntries else { return nil }
+        /*guard let entries = self.dataEntries else { return nil }
         for entry in entries where entry.isMax {
             return entry
         }
-        return nil
+        return nil*/
+        
+        dataEntries?.first(where: { $0.isMax })
     }
 
     private func createYAxisLabels(maxEntry: BarEntry) -> [String] {
-        guard let max = Float(maxEntry.textValue) else { return []}
-        let intervalValue = max / Float(yAxisNumberOfInterval)
-        var insertValue: Float = 0
+        let max = maxEntry.value
+        let intervalValue = max / CGFloat(yAxisNumberOfInterval)
+        var insertValue: CGFloat = 0
         var yAxisLabels: [String] = []
         while true {
             if insertValue >= max {
                 return yAxisLabels
             }
             insertValue += intervalValue
-            yAxisLabels.append(String(format: "%.02f", Float(insertValue)))
+            yAxisLabels.append(String(format: "%.02f", insertValue))
         }
     }
 
@@ -398,7 +403,9 @@ extension MSBBarChartView {
     }
 
     open func start() {
-        guard let dataSource = self.dataEntries, let max = getMaxEntry(), let interval = Int(max.textValue) else { return }
+        guard let dataSource = self.dataEntries, let max = getMaxEntry() else { return }
+        
+        let interval = Int(max.value)
         mainLayer.sublayers?.forEach({ $0.removeFromSuperlayer() })
         
         prepareParameters()
@@ -436,27 +443,17 @@ extension MSBBarChartView {
         })
     }
 
-    /*open func setDataEntries(values: [CGFloat]) {
+    open func setDataEntries(values: [CGFloat]) {
         guard let maxValue = values.max() else { return }
         var entries: [BarEntry] = []
         for i in 0..<values.count {
             let value = values[i]
             let height: CGFloat = value / maxValue
             let isMax = value == maxValue
-            entries.append(BarEntry(color: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), height: height, title: "\(i + 1)\(xAxisUnitLabel)", textValue: "\(value)", isMax: isMax, textColor: xAxisLabelColor))
+            let entry = BarEntry(color: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), height: height, title: "\(i + 1)\(xAxisUnitLabel)", value: value, isMax: isMax, textColor: xAxisLabelColor)
+            entries.append(entry)
         }
-        self.dataEntries = entries
-    }*/
-    
-    open func setDataEntries(values: [Int]) {
-        guard let maxValue = values.max() else { return }
-        var entries: [BarEntry] = []
-        for i in 0..<values.count {
-            let value = values[i]
-            let height: CGFloat = CGFloat(value) / CGFloat(maxValue)
-            let isMax = value == maxValue
-            entries.append(BarEntry(color: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), height: CGFloat(height), title: "\(i + 1)\(xAxisUnitLabel)", textValue: "\(value)", isMax: isMax, textColor: xAxisLabelColor))
-        }
+        
         self.dataEntries = entries
     }
 
@@ -478,7 +475,7 @@ struct BarEntry {
     let color: UIColor
     let height: CGFloat
     var title: String
-    let textValue: String
+    let value: CGFloat
     let isMax: Bool
     let textColor: UIColor
 

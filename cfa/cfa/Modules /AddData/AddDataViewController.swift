@@ -127,7 +127,7 @@ class AddDataViewController: UIViewController {
     @IBAction func closeButtonTapped(_ sender: UIButton) {
         saveData {
             self.dismiss(animated: true) { [weak self] in
-                self?.delegate?.update()
+                self?.delegate?.updateTable()
             }
         }
     }

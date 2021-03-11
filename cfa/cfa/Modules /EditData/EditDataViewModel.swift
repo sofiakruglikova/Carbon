@@ -9,7 +9,7 @@ import Foundation
 
 class EditDataViewModel {
     
-    var data: [EditData.Carbon] = []
+    var dm = DataManager.shared
     
     init() {
         
@@ -21,7 +21,7 @@ class EditDataViewModel {
         let carbon2 = EditData.Carbon(transport: .Train, frequency: .Week(times: 2))
         let carbon3 = EditData.Carbon(transport: .Plane, frequency: .Month(times: 5))
         
-        data = [carbon1, carbon2, carbon3]
+        dm.data = [carbon1, carbon2, carbon3]
         
         completion?()
         
@@ -29,23 +29,23 @@ class EditDataViewModel {
     
     func calculation() {
         
-        print(data.reduce(into: 0.0){ $0 += $1.calcEmission(days: 3) })
+        print(dm.data.reduce(into: 0.0){ $0 += $1.calcEmission(days: 3) })
         
     }
     
     func addData(carbon: EditData.Carbon) {
-        data.append(carbon)
+        dm.data.append(carbon)
     }
     
     func updateData(carbonPair: (Int, EditData.Carbon)) {
-        if carbonPair.0 < data.count {
-            data[carbonPair.0] = carbonPair.1
+        if carbonPair.0 < dm.data.count {
+            dm.data[carbonPair.0] = carbonPair.1
         }
     }
     
     func deleteData(at indexPath: IndexPath) {
-        if indexPath.row < data.count {
-            data.remove(at: indexPath.row)
+        if indexPath.row < dm.data.count {
+            dm.data.remove(at: indexPath.row)
         }
     }
 }

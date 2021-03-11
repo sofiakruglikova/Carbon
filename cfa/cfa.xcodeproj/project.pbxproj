@@ -18,10 +18,11 @@
 		BBC481A125B0E5B500AA7333 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC4819F25B0E5B500AA7333 /* Main.storyboard */; };
 		BBC481A325B0E5BA00AA7333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBC481A225B0E5BA00AA7333 /* Assets.xcassets */; };
 		BBC481A625B0E5BA00AA7333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC481A425B0E5BA00AA7333 /* LaunchScreen.storyboard */; };
-		BBEE6C0D25F935E6003456E4 /* MSBBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE6C0C25F935E6003456E4 /* MSBBarChartView.swift */; };
 		BBEE6C1225F936AE003456E4 /* MainGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE6C1125F936AE003456E4 /* MainGraphViewController.swift */; };
 		BBEE6C1625F936C7003456E4 /* MainGraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE6C1525F936C7003456E4 /* MainGraphViewModel.swift */; };
 		BBEE6C1925F936E1003456E4 /* MainGraphModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE6C1825F936E1003456E4 /* MainGraphModel.swift */; };
+		BBEE6C1E25FA109B003456E4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE6C1D25FA109B003456E4 /* DataManager.swift */; };
+		BBEE6C2525FA174B003456E4 /* MSBBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE6C2425FA174B003456E4 /* MSBBarChartView.swift */; };
 		BBEF595E25F0DC7100A64265 /* AddDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEF595D25F0DC7100A64265 /* AddDataViewController.swift */; };
 		BBEF596225F0DCA500A64265 /* AddDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEF596125F0DCA500A64265 /* AddDataViewModel.swift */; };
 		BBEF596525F0DCB500A64265 /* AddDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEF596425F0DCB500A64265 /* AddDataModel.swift */; };
@@ -41,10 +42,11 @@
 		BBC481A225B0E5BA00AA7333 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBC481A525B0E5BA00AA7333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBC481A725B0E5BA00AA7333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BBEE6C0C25F935E6003456E4 /* MSBBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSBBarChartView.swift; sourceTree = "<group>"; };
 		BBEE6C1125F936AE003456E4 /* MainGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGraphViewController.swift; sourceTree = "<group>"; };
 		BBEE6C1525F936C7003456E4 /* MainGraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGraphViewModel.swift; sourceTree = "<group>"; };
 		BBEE6C1825F936E1003456E4 /* MainGraphModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGraphModel.swift; sourceTree = "<group>"; };
+		BBEE6C1D25FA109B003456E4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		BBEE6C2425FA174B003456E4 /* MSBBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSBBarChartView.swift; sourceTree = "<group>"; };
 		BBEF595D25F0DC7100A64265 /* AddDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataViewController.swift; sourceTree = "<group>"; };
 		BBEF596125F0DCA500A64265 /* AddDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataViewModel.swift; sourceTree = "<group>"; };
 		BBEF596425F0DCB500A64265 /* AddDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataModel.swift; sourceTree = "<group>"; };
@@ -126,7 +128,8 @@
 		BBEE6C0B25F93572003456E4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				BBEE6C0C25F935E6003456E4 /* MSBBarChartView.swift */,
+				BBEE6C2425FA174B003456E4 /* MSBBarChartView.swift */,
+				BBEE6C1D25FA109B003456E4 /* DataManager.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -222,11 +225,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB02F8B625C425F200171AB1 /* LoginViewController.swift in Sources */,
+				BBEE6C1E25FA109B003456E4 /* DataManager.swift in Sources */,
 				BBEE6C1225F936AE003456E4 /* MainGraphViewController.swift in Sources */,
 				BBEF595E25F0DC7100A64265 /* AddDataViewController.swift in Sources */,
+				BBEE6C2525FA174B003456E4 /* MSBBarChartView.swift in Sources */,
 				BBEF596225F0DCA500A64265 /* AddDataViewModel.swift in Sources */,
 				BB02F8E125ED1B6D00171AB1 /* EditDataViewController.swift in Sources */,
-				BBEE6C0D25F935E6003456E4 /* MSBBarChartView.swift in Sources */,
 				BBEE6C1925F936E1003456E4 /* MainGraphModel.swift in Sources */,
 				BBC4819A25B0E5B500AA7333 /* AppDelegate.swift in Sources */,
 				BB02F8ED25ED1C7500171AB1 /* LoginModel.swift in Sources */,

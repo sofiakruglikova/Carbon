@@ -11,7 +11,7 @@ protocol EditDataDelegate {
     
     func addData(carbon: EditData.Carbon)
     
-    func update()
+    func updateTable()
     
     func updateData(carbonPair: (Int, EditData.Carbon))
 }
@@ -29,11 +29,12 @@ class EditDataViewController: UIViewController {
     
     func tableSetUp() {
         
+        viewModel.dm.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-        viewModel.makeDummyData {
+        /*viewModel.makeDummyData {
             self.tableView.reloadData()
-        }
+        }*/
         
     }
     
@@ -60,13 +61,13 @@ extension EditDataViewController: UITableViewDelegate {
 
 extension EditDataViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.data.count
+        viewModel.dm.data.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let carbon = viewModel.data[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let carbon = viewModel.dm.data[indexPath.row]
         cell.textLabel?.text = carbon.title
         cell.detailTextLabel?.text = carbon.subtitle
         print(carbon.subtitle)
@@ -76,13 +77,13 @@ extension EditDataViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAddDataModel(carbonPair: (indexPath.row, viewModel.data[indexPath.row]))
+        showAddDataModel(carbonPair: (indexPath.row, viewModel.dm.data[indexPath.row]))
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             viewModel.deleteData(at: indexPath)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            //tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
             print("Insert")
@@ -92,7 +93,7 @@ extension EditDataViewController: UITableViewDataSource {
 
 extension EditDataViewController: EditDataDelegate {
     
-    func update() {
+    func updateTable() {
         tableView.reloadData()
     }
     
@@ -103,4 +104,12 @@ extension EditDataViewController: EditDataDelegate {
     func updateData(carbonPair: (Int, EditData.Carbon)) {
         viewModel.updateData(carbonPair: carbonPair)
     }
+}
+
+extension EditDataViewController: UpdateDataDelegate {
+    
+    func update() {
+        tableView.reloadData()
+    }
+    
 }

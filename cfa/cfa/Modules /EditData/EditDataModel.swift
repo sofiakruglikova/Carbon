@@ -9,7 +9,7 @@ import Foundation
 
 enum EditData {
     
-    enum Transport: String, CaseIterable {
+    enum Transport: String, CaseIterable, Codable {
         
         case Train
         case Car
@@ -42,7 +42,7 @@ enum EditData {
         }
     }
     
-    enum Frequency {
+    enum Frequency: Codable {
         
         case EveryDay
         case Week(times: Int)
@@ -102,9 +102,7 @@ enum EditData {
         
     }
     
-    struct Carbon {
-        
-        let date: Date = Date()
+    struct Carbon: Codable {
         
         let transport: Transport
         let frequency: Frequency
@@ -130,4 +128,46 @@ enum EditData {
     }
     
     
+}
+
+extension EditData.Frequency {
+
+    private enum CodingKeys: String, CodingKey {
+        case EveryDay
+        case Week
+        case Month
+    }
+
+    enum FrequencyCodingError: Error {
+        case decoding(String)
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        if ((try? values.decode(String.self, forKey: .EveryDay)) != nil) {
+            self = .EveryDay
+            return
+        }
+        if let value = try? values.decode(Int.self, forKey: .Month) {
+            self = .Month(times: value)
+            return
+        }
+        if let value = try? values.decode(Int.self, forKey: .Week) {
+            self = .Week(times: value)
+            return
+        }
+        throw FrequencyCodingError.decoding("Whoops! \(dump(values))")
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        switch self {
+        case .EveryDay:
+            try container.encode("EveryDay", forKey: .EveryDay)
+        case .Month(let times):
+            try container.encode(times, forKey: .Month)
+        case .Week(let times):
+            try container.encode(times, forKey: .Week)
+        }
+    }
 }
