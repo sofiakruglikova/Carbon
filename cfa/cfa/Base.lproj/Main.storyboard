@@ -350,6 +350,76 @@
             </objects>
             <point key="canvasLocation" x="3046" y="78"/>
         </scene>
+        <!--Target Settings View Controller-->
+        <scene sceneID="AeA-Ev-huF">
+            <objects>
+                <viewController storyboardIdentifier="TargetSettingsViewController" id="vpF-fa-YNR" customClass="TargetSettingsViewController" customModule="cfa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BJd-iS-vOO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Target" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ie1-Ug-n4F">
+                                <rect key="frame" x="99.5" y="214" width="215" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your monthly target carbon footprint" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgh-1U-3Cu">
+                                <rect key="frame" x="103.5" y="334" width="207" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sqq-vx-g5L">
+                                <rect key="frame" x="113.5" y="469" width="187" height="41"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="Jml-9o-Nhb"/>
+                                    <constraint firstAttribute="width" constant="187" id="oET-xt-1h5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNS-uZ-iR3">
+                                <rect key="frame" x="186.5" y="622" width="41" height="30"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title=" Save ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="DIK-64-Xos" eventType="touchUpInside" id="ZKH-BU-4U0"/>
+                                    <action selector="saveButtonTapped:" destination="vpF-fa-YNR" eventType="touchUpInside" id="4fI-1k-mHf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="55o-O0-AYk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ie1-Ug-n4F" firstAttribute="centerX" secondItem="BJd-iS-vOO" secondAttribute="centerX" id="2Se-0B-LKS"/>
+                            <constraint firstItem="Sqq-vx-g5L" firstAttribute="centerX" secondItem="BJd-iS-vOO" secondAttribute="centerX" id="53i-oj-Xiq"/>
+                            <constraint firstItem="jgh-1U-3Cu" firstAttribute="centerX" secondItem="BJd-iS-vOO" secondAttribute="centerX" id="9BK-9F-dah"/>
+                            <constraint firstItem="kNS-uZ-iR3" firstAttribute="centerX" secondItem="BJd-iS-vOO" secondAttribute="centerX" id="9gx-i3-sfU"/>
+                            <constraint firstItem="kNS-uZ-iR3" firstAttribute="top" secondItem="Sqq-vx-g5L" secondAttribute="bottom" constant="112" id="GkI-yf-HMu"/>
+                            <constraint firstItem="jgh-1U-3Cu" firstAttribute="width" secondItem="BJd-iS-vOO" secondAttribute="width" multiplier="0.5" id="Igh-f7-LWZ"/>
+                            <constraint firstItem="Sqq-vx-g5L" firstAttribute="top" relation="lessThanOrEqual" secondItem="jgh-1U-3Cu" secondAttribute="bottom" constant="114" id="P8j-A6-9U4"/>
+                            <constraint firstItem="55o-O0-AYk" firstAttribute="bottom" secondItem="kNS-uZ-iR3" secondAttribute="bottom" constant="210" id="WbY-CE-JbY"/>
+                            <constraint firstItem="jgh-1U-3Cu" firstAttribute="top" secondItem="Ie1-Ug-n4F" secondAttribute="bottom" constant="66" id="jdY-oc-JGj"/>
+                            <constraint firstItem="Ie1-Ug-n4F" firstAttribute="top" secondItem="55o-O0-AYk" secondAttribute="top" constant="170" id="uEc-gG-h5q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="targetFootprintTextField" destination="Sqq-vx-g5L" id="0uY-jh-wXR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dLL-jd-dcA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3857.971014492754" y="77.678571428571431"/>
+        </scene>
         <!--Main Graph View Controller-->
         <scene sceneID="6FJ-YW-aqW">
             <objects>
@@ -365,8 +435,23 @@
                                     <constraint firstAttribute="height" constant="216" id="mj8-Kt-igI"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aA6-bB-Vec">
+                                <rect key="frame" x="265" y="148" width="74" height="30"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title=" My target ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="myTargetButtonTapped:" destination="yNw-OD-8th" eventType="touchUpInside" id="QHm-H5-7LN"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oia-0m-tYO">
-                                <rect key="frame" x="147.5" y="148" width="119" height="30"/>
+                                <rect key="frame" x="75" y="148" width="119" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title=" My Carbon Data ">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -384,11 +469,13 @@
                         <viewLayoutGuide key="safeArea" id="f86-Nc-Kwf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="oia-0m-tYO" firstAttribute="leading" secondItem="f86-Nc-Kwf" secondAttribute="leading" constant="75" id="3iY-xc-Tkf"/>
                             <constraint firstItem="oia-0m-tYO" firstAttribute="top" secondItem="f86-Nc-Kwf" secondAttribute="top" constant="104" id="9Du-4e-Gih"/>
-                            <constraint firstItem="oia-0m-tYO" firstAttribute="centerX" secondItem="MBx-3W-Gl6" secondAttribute="centerX" id="ICS-kS-tE1"/>
+                            <constraint firstItem="aA6-bB-Vec" firstAttribute="top" secondItem="f86-Nc-Kwf" secondAttribute="top" constant="104" id="Sfk-FV-dxY"/>
                             <constraint firstItem="f86-Nc-Kwf" firstAttribute="trailing" secondItem="pt4-YE-IFA" secondAttribute="trailing" constant="10" id="Weo-Jy-jaC"/>
                             <constraint firstItem="pt4-YE-IFA" firstAttribute="centerY" secondItem="MBx-3W-Gl6" secondAttribute="centerY" id="cEl-YZ-sj7"/>
                             <constraint firstItem="pt4-YE-IFA" firstAttribute="centerX" secondItem="MBx-3W-Gl6" secondAttribute="centerX" id="gLs-Vo-Ly1"/>
+                            <constraint firstItem="f86-Nc-Kwf" firstAttribute="trailing" secondItem="aA6-bB-Vec" secondAttribute="trailing" constant="75" id="n25-2X-vcO"/>
                             <constraint firstItem="pt4-YE-IFA" firstAttribute="leading" secondItem="f86-Nc-Kwf" secondAttribute="leading" constant="10" id="wd0-bP-Rx6"/>
                         </constraints>
                     </view>
@@ -398,7 +485,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMq-p0-v4r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1309" y="78"/>
+            <point key="canvasLocation" x="1308.6956521739132" y="77.678571428571431"/>
         </scene>
     </scenes>
     <resources>

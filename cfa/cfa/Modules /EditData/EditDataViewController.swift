@@ -61,13 +61,13 @@ extension EditDataViewController: UITableViewDelegate {
 
 extension EditDataViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.dm.data.count
+        viewModel.dm.carbonData.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let carbon = viewModel.dm.data[indexPath.row]
+        let carbon = viewModel.dm.carbonData[indexPath.row]
         cell.textLabel?.text = carbon.title
         cell.detailTextLabel?.text = carbon.subtitle
         print(carbon.subtitle)
@@ -77,7 +77,7 @@ extension EditDataViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAddDataModel(carbonPair: (indexPath.row, viewModel.dm.data[indexPath.row]))
+        showAddDataModel(carbonPair: (indexPath.row, viewModel.dm.carbonData[indexPath.row]))
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

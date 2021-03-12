@@ -19,9 +19,14 @@ class MainGraphViewController: UIViewController {
         setUpGraph()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setUpGraph()
+    }
+    
     func setUpGraph() {
         self.graphView.setOptions([
-            .yAxisTitle("kg of CO2 this month"),
+            .yAxisTitle("kg of CO\u{2082}"),
             .yAxisNumberOfInterval(10)
         ])
         self.graphView.assignmentOfColor =  [
@@ -41,9 +46,22 @@ class MainGraphViewController: UIViewController {
         self.navigationController?.pushViewController(dataViewController, animated: true)
     }
     
+    func showTargetView() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let targetViewController = storyBoard.instantiateViewController(withIdentifier: "TargetSettingsViewController") as! TargetSettingsViewController
+        self.navigationController?.pushViewController(targetViewController, animated: true)
+    }
+    
     @IBAction func myDataButtonTapped(_ sender: UIButton) {
         
         showDataView()
         
     }
+    
+    @IBAction func myTargetButtonTapped(_ sender: UIButton) {
+        
+        showTargetView()
+        
+    }
+    
 }

@@ -17,41 +17,71 @@ class DataManager {
     
     var delegate: UpdateDataDelegate?
     
-    var data: [EditData.Carbon] = [] {
+    var carbonData: [EditData.Carbon] = [] {
         didSet {
-            saveToDB()
+            saveCarbonToDB()
             delegate?.update()
         }
     }
     
-    init() {
-        loadFromDB()
+    var targetSettings: TargetSettings.EmissionValues? {
+        didSet {
+            if targetSettings != nil {
+                saveSettingsToDB()
+            }
+        }
     }
     
-    deinit {
-        saveToDB()
+    func load() {
+        
+        loadCarbonFromDB()
+        loadSettingsFromDB()
+        
     }
     
-    func saveToDB(completion: (() -> Void)? = nil) {
-        if let encoded = try? JSONEncoder().encode(data) {
-            UserDefaults.standard.set(encoded, forKey: "SavedData")
+    func saveCarbonToDB(completion: (() -> Void)? = nil) {
+        if let encoded = try? JSONEncoder().encode(carbonData) {
+            UserDefaults.standard.set(encoded, forKey: "SavedCarbonData")
         } else {
             print("Can't save data to DB")
         }
         completion?()
     }
     
-    func loadFromDB(completion: (() -> Void)? = nil) {
-        if let data = UserDefaults.standard.data(forKey: "SavedData") {
+    func loadCarbonFromDB(completion: (() -> Void)? = nil) {
+        if let data = UserDefaults.standard.data(forKey: "SavedCarbonData") {
             if let decoded = try? JSONDecoder().decode([EditData.Carbon].self, from: data) {
-                self.data = decoded
+                self.carbonData = decoded
                 completion?()
                 return
             }
         }
         
         print("Can't load data from DB")
-        self.data = []
+        self.carbonData = []
+        completion?()
+    }
+    
+    func saveSettingsToDB(completion: (() -> Void)? = nil) {
+        if let encoded = try? JSONEncoder().encode(targetSettings) {
+            UserDefaults.standard.set(encoded, forKey: "SavedSettingsData")
+        } else {
+            print("Can't save data to DB")
+        }
+        completion?()
+    }
+    
+    func loadSettingsFromDB(completion: (() -> Void)? = nil) {
+        if let data = UserDefaults.standard.data(forKey: "SavedSettingsData") {
+            if let decoded = try? JSONDecoder().decode((TargetSettings.EmissionValues).self, from: data) {
+                self.targetSettings = decoded
+                completion?()
+                return
+            }
+        }
+        
+        print("Can't load data from DB")
+        self.targetSettings = nil
         completion?()
     }
 

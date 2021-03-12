@@ -13,6 +13,7 @@
 		BB02F8E725ED1C4E00171AB1 /* EditDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB02F8E625ED1C4E00171AB1 /* EditDataModel.swift */; };
 		BB02F8EA25ED1C6700171AB1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB02F8E925ED1C6700171AB1 /* LoginViewModel.swift */; };
 		BB02F8ED25ED1C7500171AB1 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB02F8EC25ED1C7500171AB1 /* LoginModel.swift */; };
+		BB82581825FB69260048A544 /* UIViewController+adds.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82581725FB69260048A544 /* UIViewController+adds.swift */; };
 		BBC4819A25B0E5B500AA7333 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC4819925B0E5B500AA7333 /* AppDelegate.swift */; };
 		BBC4819C25B0E5B500AA7333 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC4819B25B0E5B500AA7333 /* SceneDelegate.swift */; };
 		BBC481A125B0E5B500AA7333 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBC4819F25B0E5B500AA7333 /* Main.storyboard */; };
@@ -23,6 +24,9 @@
 		BBEE6C1925F936E1003456E4 /* MainGraphModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE6C1825F936E1003456E4 /* MainGraphModel.swift */; };
 		BBEE6C1E25FA109B003456E4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE6C1D25FA109B003456E4 /* DataManager.swift */; };
 		BBEE6C2525FA174B003456E4 /* MSBBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE6C2425FA174B003456E4 /* MSBBarChartView.swift */; };
+		BBEE6C2C25FA70F1003456E4 /* TargetSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE6C2B25FA70F1003456E4 /* TargetSettingsViewController.swift */; };
+		BBEE6C2F25FA7198003456E4 /* TargetSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE6C2E25FA7198003456E4 /* TargetSettingsViewModel.swift */; };
+		BBEE6C3225FA720B003456E4 /* TargetSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEE6C3125FA720B003456E4 /* TargetSettingsModel.swift */; };
 		BBEF595E25F0DC7100A64265 /* AddDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEF595D25F0DC7100A64265 /* AddDataViewController.swift */; };
 		BBEF596225F0DCA500A64265 /* AddDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEF596125F0DCA500A64265 /* AddDataViewModel.swift */; };
 		BBEF596525F0DCB500A64265 /* AddDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEF596425F0DCB500A64265 /* AddDataModel.swift */; };
@@ -35,6 +39,7 @@
 		BB02F8E625ED1C4E00171AB1 /* EditDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataModel.swift; sourceTree = "<group>"; };
 		BB02F8E925ED1C6700171AB1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BB02F8EC25ED1C7500171AB1 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		BB82581725FB69260048A544 /* UIViewController+adds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+adds.swift"; sourceTree = "<group>"; };
 		BBC4819625B0E5B500AA7333 /* cfa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cfa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBC4819925B0E5B500AA7333 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBC4819B25B0E5B500AA7333 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +52,9 @@
 		BBEE6C1825F936E1003456E4 /* MainGraphModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGraphModel.swift; sourceTree = "<group>"; };
 		BBEE6C1D25FA109B003456E4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BBEE6C2425FA174B003456E4 /* MSBBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSBBarChartView.swift; sourceTree = "<group>"; };
+		BBEE6C2B25FA70F1003456E4 /* TargetSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetSettingsViewController.swift; sourceTree = "<group>"; };
+		BBEE6C2E25FA7198003456E4 /* TargetSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetSettingsViewModel.swift; sourceTree = "<group>"; };
+		BBEE6C3125FA720B003456E4 /* TargetSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetSettingsModel.swift; sourceTree = "<group>"; };
 		BBEF595D25F0DC7100A64265 /* AddDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataViewController.swift; sourceTree = "<group>"; };
 		BBEF596125F0DCA500A64265 /* AddDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataViewModel.swift; sourceTree = "<group>"; };
 		BBEF596425F0DCB500A64265 /* AddDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataModel.swift; sourceTree = "<group>"; };
@@ -66,6 +74,7 @@
 		BB02F8DD25ED1ACD00171AB1 /* Modules  */ = {
 			isa = PBXGroup;
 			children = (
+				BBEE6C2A25FA7091003456E4 /* TargetSettings */,
 				BBEE6C0F25F93621003456E4 /* MainGraph */,
 				BBEF595C25F0DC4400A64265 /* AddData */,
 				BB02F8DF25ED1AF000171AB1 /* EditData */,
@@ -92,6 +101,14 @@
 				BB02F8E625ED1C4E00171AB1 /* EditDataModel.swift */,
 			);
 			path = EditData;
+			sourceTree = "<group>";
+		};
+		BB82581625FB68FC0048A544 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BB82581725FB69260048A544 /* UIViewController+adds.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		BBC4818D25B0E5B500AA7333 = {
@@ -128,6 +145,7 @@
 		BBEE6C0B25F93572003456E4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				BB82581625FB68FC0048A544 /* Extensions */,
 				BBEE6C2425FA174B003456E4 /* MSBBarChartView.swift */,
 				BBEE6C1D25FA109B003456E4 /* DataManager.swift */,
 			);
@@ -142,6 +160,16 @@
 				BBEE6C1825F936E1003456E4 /* MainGraphModel.swift */,
 			);
 			path = MainGraph;
+			sourceTree = "<group>";
+		};
+		BBEE6C2A25FA7091003456E4 /* TargetSettings */ = {
+			isa = PBXGroup;
+			children = (
+				BBEE6C2B25FA70F1003456E4 /* TargetSettingsViewController.swift */,
+				BBEE6C2E25FA7198003456E4 /* TargetSettingsViewModel.swift */,
+				BBEE6C3125FA720B003456E4 /* TargetSettingsModel.swift */,
+			);
+			path = TargetSettings;
 			sourceTree = "<group>";
 		};
 		BBEF595C25F0DC4400A64265 /* AddData */ = {
@@ -232,11 +260,15 @@
 				BBEF596225F0DCA500A64265 /* AddDataViewModel.swift in Sources */,
 				BB02F8E125ED1B6D00171AB1 /* EditDataViewController.swift in Sources */,
 				BBEE6C1925F936E1003456E4 /* MainGraphModel.swift in Sources */,
+				BBEE6C2F25FA7198003456E4 /* TargetSettingsViewModel.swift in Sources */,
 				BBC4819A25B0E5B500AA7333 /* AppDelegate.swift in Sources */,
 				BB02F8ED25ED1C7500171AB1 /* LoginModel.swift in Sources */,
 				BB02F8EA25ED1C6700171AB1 /* LoginViewModel.swift in Sources */,
 				BBEF596525F0DCB500A64265 /* AddDataModel.swift in Sources */,
 				BBEE6C1625F936C7003456E4 /* MainGraphViewModel.swift in Sources */,
+				BB82581825FB69260048A544 /* UIViewController+adds.swift in Sources */,
+				BBEE6C2C25FA70F1003456E4 /* TargetSettingsViewController.swift in Sources */,
+				BBEE6C3225FA720B003456E4 /* TargetSettingsModel.swift in Sources */,
 				BB02F8E725ED1C4E00171AB1 /* EditDataModel.swift in Sources */,
 				BB02F8E425ED1C3900171AB1 /* EditDataViewModel.swift in Sources */,
 				BBC4819C25B0E5B500AA7333 /* SceneDelegate.swift in Sources */,
