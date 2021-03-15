@@ -9,20 +9,13 @@ import UIKit
 
 class MainGraphViewModel {
     
-    let dm = DataManager.shared
+    private let dm = DataManager.shared
     
-    /*func calcGraphData(completion: ((MainGraph.Values) -> Void)? = nil) {
+    func calcGraphData(completion: ((MainGraph.Values) -> Void)? = nil) {
         
-        completion?(MainGraph.Values(userCarbon: dm.calculateUserEmission(), globalAverage: dm.averageGlobalMonthlyEmission, userTarget: dm.targetSettings?.emission ?? 0.0))
-    }*/
-    
-    /*func calcGraphData() -> [String: CGFloat] {
-        
-        [
-                        "userCarbon": dm.calculateUserEmission(),
-                        "globalAverage": dm.averageGlobalMonthlyEmission,
-                        "userTarget": dm.targetSettings?.emission ?? 0.0]
-    }*/
-    
+        completion?(MainGraph.Values(userCarbon: dm.calculateUserEmission(),
+                                     globalAverage: dm.averageGlobalMonthlyEmission,
+                                     userTarget: dm.targetSettings?.emission ?? 0.0))
+    }
     
 }
