@@ -5,12 +5,12 @@
 //  Created by Sofiia Kruglikova on 11.03.2021.
 //
 
-import Foundation
+import UIKit
 
 enum TargetSettings {
     
     struct EmissionValues: Codable {
-        let emission: Float
+        let emission: CGFloat
     }
     
 }

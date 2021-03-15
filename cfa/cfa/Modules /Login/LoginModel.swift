@@ -7,4 +7,6 @@
 
 import Foundation
 
-enum Login {}
+enum Login {
+    
+}

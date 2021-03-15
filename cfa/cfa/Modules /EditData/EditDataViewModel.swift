@@ -27,12 +27,6 @@ class EditDataViewModel {
         
     }
     
-    func calculation() {
-        
-        print(dm.carbonData.reduce(into: 0.0){ $0 += $1.calcEmission(days: 3) })
-        
-    }
-    
     func addData(carbon: EditData.Carbon) {
         dm.carbonData.append(carbon)
     }

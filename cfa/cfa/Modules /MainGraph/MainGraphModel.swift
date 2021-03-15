@@ -5,8 +5,13 @@
 //  Created by Sofiia Kruglikova on 10.03.2021.
 //
 
-import Foundation
+import UIKit 
 
 enum MainGraph {
     
+    struct Values {
+        let userCarbon: CGFloat
+        let globalAverage: CGFloat
+        let userTarget: CGFloat
+    }
 }

@@ -7,5 +7,7 @@
 
 import Foundation
 
-class LoginViewModel {}
+class LoginViewModel {
+    
+}
 

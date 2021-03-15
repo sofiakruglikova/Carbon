@@ -28,7 +28,7 @@ class TargetSettingsViewController: UIViewController {
     private func saveTarget() {
         
         guard let text = targetFootprintTextField.text, let emission = Float(text) else { return }
-        viewModel.saveTarget(emission: emission)
+        viewModel.saveTarget(emission: CGFloat(emission))
         
     }
 

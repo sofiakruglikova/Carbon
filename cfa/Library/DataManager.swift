@@ -5,7 +5,7 @@
 //  Created by Sofiia Kruglikova on 11.03.2021.
 //
 
-import Foundation
+import UIKit
 
 protocol UpdateDataDelegate {
     func update()
@@ -14,6 +14,8 @@ protocol UpdateDataDelegate {
 class DataManager {
     
     static let shared = DataManager()
+    
+    let averageGlobalMonthlyEmission: CGFloat = 400.0
     
     var delegate: UpdateDataDelegate?
     
@@ -83,6 +85,12 @@ class DataManager {
         print("Can't load data from DB")
         self.targetSettings = nil
         completion?()
+    }
+    
+    func calculateUserEmission() -> CGFloat {
+        
+        CGFloat(carbonData.reduce(into: 0.0){ $0 += $1.calcEmission(days: 3) })
+        
     }
 
 }
